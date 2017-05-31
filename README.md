@@ -127,6 +127,7 @@ Let's go:
 ```bash
 ssh admin@192.168.1.1
 ```
+
 ```bash
   MMMM    MMMM       KKK                          TTTTTTTTTTT      KKK
   MMM MMMM MMM  III  KKK  KKK  RRRRRR     OOOOOO      TTT     III  KKK  KKK
@@ -146,6 +147,7 @@ command [?]     Gives help on the command and list of arguments
 ..              Move up one level
 /command        Use command at the base level
 ```
+
 <h4>Check your Mikrotik OS version</h4>
 All the code in this repo is for version 6.39.1. If yours is older than that go ahead and upgrade it first.
 ```bash
