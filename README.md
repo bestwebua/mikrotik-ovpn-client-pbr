@@ -283,5 +283,10 @@ B - blackhole, U - unreachable, P - prohibit
 ```
 Please note, if you not see ADS route with your OpenVPN server ip you have forgotten add-default-route=yes in your ovpn-client.
 - - -
+If you want to use this manual for disabling blocking resources by your ISP, use not your ISP DNS. For example, free DNS by Google:
+```bash
+ip dns set servers=8.8.8.8
+```
+- - -
 ## Happy End
-That's all! Your Mikrotik Policy Based Routing should now be routed through your OpenVPN server.
+That's all! Your Mikrotik Policy Based Routing should now be routed through your OpenVPN server. Cheers!
