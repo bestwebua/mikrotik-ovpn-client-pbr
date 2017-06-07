@@ -283,9 +283,21 @@ B - blackhole, U - unreachable, P - prohibit
 ```
 Please note, if you not see ADS route with your OpenVPN server ip you have forgotten add-default-route=yes in your ovpn-client.
 - - -
-If you want to use this manual for disabling blocking resources by your ISP, use not your ISP DNS. For example, free DNS by Google:
+## Using Policy Based Routing for disabling blocking resources by your ISP
+If you want to use this manual for disabling blocking resources by your ISP, use not your ISP DNS. For instance you can use free DNS by Google (8.8.8.8 or 8.8.4.4).
+
+#### Step 1. Disable providers DNS's.
+Go to PPP > Interface > Your connection (in this case it's pppoe-out1) > Dial Out and disable 'Use Peer DNS' option.
+```bash
+interface pppoe-client set name="pppoe-out1" max-mtu=auto max-mru=auto mrru=disabled interface=ether1 user="########" password="########" profile=default keepalive-timeout=60 service-name="" ac-name="" add-default route=yes default-route-distance=0 dial-on-demand=no use-peer-dns=no allow=pap,chap,mschap1,mschap2
+```
+#### Step 2. Add new DNS.
 ```bash
 ip dns set servers=8.8.8.8
+```
+#### Step 3. Clear your old DNS cache.
+```bash
+ip dns cache flush
 ```
 - - -
 ## Happy End
