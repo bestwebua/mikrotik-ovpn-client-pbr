@@ -36,6 +36,25 @@ And create the keys for yourself:
 ```bash
 ./build-key client
 ```
+#### Creating/deleting additional keys/certificates:
+##### Creating additional OpenVPN keys/certificates:
+```bash
+cd /etc/openvpn/easy-rsa
+source ./vars
+./build-key your_new_key
+```
+##### Deleting OpenVPN keys/certificates:
+```bash
+cd /etc/openvpn/easy-rsa
+source ./vars
+./revoke-full sertificate_name
+```
+Then delete invalid certificates from '/etc/openvpn/easy-rsa/keys' and delete certs with marker 'I' from 'keys/index.txt':
+```bash
+cd /etc/openvpn/easy-rsa
+source ./vars
+nano keys/index.txt
+```
 Create and tune your openvpn.config:
 ```bash
 cp /usr/share/doc/openvpn-2.3.2/sample/sample-config-files/server.conf /etc/openvpn
@@ -112,7 +131,7 @@ Restart the service:
 ```bash
 service iptables restart
 ```
-That's all. Your OpenVPN server is ready! :)
+That's all. Your OpenVPN server is ready! :) Please note, if your OpenVPN server assigns the same IP's for all OpenVPN clients you need to use different certificates for all your vpn clients (go to 'Creating/deleting additional keys/certificates' step from this guide). Also keep in mind, commonName and name in your clients keys must be uniqe. For instance: client1, client2, client3, etc.
 
 - - -
 
